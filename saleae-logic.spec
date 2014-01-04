@@ -52,6 +52,7 @@ if [ ! -d ~/.saleae-logic ]; then
 		ln -s %{_libdir}/%{name}/$f ~/.saleae-logic/$f
 	done
 fi
+rm -f ~/.saleae-logic/Logic
 ln -f %{_libdir}/%{name}/Logic ~/.saleae-logic/ 2> /dev/null || cp -fa %{_libdir}/%{name}/Logic ~/.saleae-logic/
 cd ~/.saleae-logic
 exec ./Logic
