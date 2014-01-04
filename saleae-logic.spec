@@ -51,8 +51,8 @@ if [ ! -d ~/.saleae-logic ]; then
 	for f in Analyzers libAnalyzer.so; do
 		ln -s %{_libdir}/%{name}/$f ~/.saleae-logic/$f
 	done
-	ln %{_libdir}/%{name}/Logic ~/.saleae-logic/ 2> /dev/null || cp -a %{_libdir}/%{name}/Logic ~/.saleae-logic/
 fi
+ln -f %{_libdir}/%{name}/Logic ~/.saleae-logic/ 2> /dev/null || cp -fa %{_libdir}/%{name}/Logic ~/.saleae-logic/
 cd ~/.saleae-logic
 exec ./Logic
 EOF
